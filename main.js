@@ -1,8 +1,17 @@
-var player = new Player(100, 100, 'player');
+var player = new Player(580, 580);
+// var trump = new Evil(100, 100, 10);
+
+$( document ).ready(function() {
+  setInterval(function()  {
+  player.updatePlayer();
+},1000/60);
+});
+
+
+
 
 document.onkeydown = function(e) {
-  console.log(e.keyCode);
-  switch (e.keyCode) {
+    switch (e.keyCode) {
     case 37:
       player.moveLeft();
       break;
@@ -14,9 +23,3 @@ document.onkeydown = function(e) {
         break;
   };
 };
-
-setInterval(update(),100)
-// var trump = new Evil("pink", ctx);
-//
-// trump.drawEvil();
-// setInterval(trump.move, 1000);
