@@ -1,6 +1,6 @@
-function Player(x, y) {
-  this.x = x;
-  this.y = y;
+function Player() {
+  this.x = 580;
+  this.y = 580;
   this.vx = 10;
   this.element = $("<div>").attr("class", "player");
   this.element.css({
@@ -26,10 +26,7 @@ Player.prototype.moveLeft = function() {
   console.log("left", player.x);
 };
 
-Player.prototype.shoot = function () {
-  console.log("shooting");
 
-};
 Player.prototype.updatePlayer = function(){
   this.element.css({top:this.y, left:this.x, position:'absolute'});
 

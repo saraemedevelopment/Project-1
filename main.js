@@ -1,9 +1,22 @@
-var player = new Player(580,580);
-var trump = new Evil(10);
+var soundID = "Thunder";
+
+function loadSound () {
+  createjs.Sound.registerSound("assets/thunder.mp3", soundID);
+}
+
+function playSound () {
+  createjs.Sound.play(soundID);
+}
+
+
+
+var player = new Player();
+var trump = new Evil(5);
+var tomato = new Bullet(10);
 
 $( document ).ready(function() {
   setInterval(function()  {
-  player.updatePlayer(), trump.updateEvil();
+  player.updatePlayer(), trump.updateEvil(), tomato.updateShot;
 },1000/60);
 });
 
@@ -18,7 +31,7 @@ document.onkeydown = function(e) {
       player.moveRight();
       break;
     case 32:
-      player.shoot();
+      tomato.shoot();
         break;
   };
 };
