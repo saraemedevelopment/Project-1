@@ -1,12 +1,11 @@
-var player = new Player(580, 580);
-// var trump = new Evil(100, 100, 10);
+var player = new Player(580,580);
+var trump = new Evil(10);
 
 $( document ).ready(function() {
   setInterval(function()  {
-  player.updatePlayer();
+  player.updatePlayer(), trump.updateEvil();
 },1000/60);
 });
-
 
 
 
