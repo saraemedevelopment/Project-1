@@ -41,14 +41,6 @@ shape-margin: 10px;
 
 }
 
-
-.container{
-  display: flex;
-  flex-direction: row;
-align-items: flex-start;
-}
 .badge{
-  margin-left: 10px;
-
-
+  float: right;
 }

@@ -20,9 +20,7 @@ document.onkeydown = function(e) {
       player.moveRight();
       break;
     case 32:
-
       tomato = new Bullet(player.x, player.y);
-      playSound();
       break;
   };
 };
