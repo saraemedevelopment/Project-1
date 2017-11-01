@@ -1,18 +1,19 @@
 var player = new Player();
-var trump = new Evil(5, 5);
-var tomato;
+var trump = new Evil(8, 5);
 
-console.log(player.x);
-$( document ).ready(function() {
-  setInterval(function()  {
-  player.updatePlayer(), trump.updateEvil();
-  if(tomato){tomato.updateShot();}
-},1000/80);
+$(document).ready(function() {
+  setInterval(function() {
+    player.updatePlayer(), trump.updateEvil();
+    bullets.forEach(bullet => bullet.updateShot());
+  }, 1000 / 60);
 });
 
+// playFlowers();
+
+var bullets = [];
 
 document.onkeydown = function(e) {
-    switch (e.keyCode) {
+  switch (e.keyCode) {
     case 37:
       player.moveLeft();
       break;
@@ -20,9 +21,16 @@ document.onkeydown = function(e) {
       player.moveRight();
       break;
     case 32:
-
-      tomato = new Bullet(player.x, player.y);
+      bullets.push(new Bullet(player.x, player.y));
+      bullets[0].collision();
       playSound();
       break;
   };
 };
+
+$(".badge").text(trump.lifes);
+
+function playFlowers() {
+  var sound = document.getElementById("soundBack");
+  sound.play();
+}
