@@ -36,8 +36,3 @@ Player.prototype.updatePlayer = function() {
     this.vx *= -1;
   }
 };
-
-function playSound() {
-  var sound = document.getElementById("sound1");
-  sound.play();
-}
